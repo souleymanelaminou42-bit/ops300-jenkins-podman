@@ -13,7 +13,7 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                sh 'podman build -t ops300-test:1.0 /home/soul/ops300-image'
+                sh 'podman build -t ops300-test:1.0 .'
             }
         }
 
