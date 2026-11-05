@@ -40,8 +40,8 @@ pipeline {
                 ]) {
                     sh '''
                         set -e
-                        export REGISTRY_AUTH_FILE="$(mktemp)"
-                        trap 'rm -f "$REGISTRY_AUTH_FILE"' EXIT
+                        export REGISTRY_AUTH_FILE="$(mktemp -d)/auth.json"
+                        trap 'rm -rf "$(dirname "$REGISTRY_AUTH_FILE")"' EXIT
 
                         echo "$REG_PASS" | podman login \
                           --username "$REG_USER" \
