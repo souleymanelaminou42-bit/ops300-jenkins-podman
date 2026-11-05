@@ -1,0 +1,11 @@
+include "/etc/bind/transfer-key.conf";
+
+zone "assign.smahaman-laminou.300.ops" {
+    type secondary;
+
+    primaries {
+        192.168.117.201 key transfer-key;
+    };
+
+    file "/var/cache/bind/db.assign.smahaman-laminou.300.ops";
+};

@@ -1,0 +1,17 @@
+options {
+    directory "/var/cache/bind";
+
+    listen-on port 53 { any; };
+    listen-on-v6 { none; };
+
+    allow-query { 192.168.117.0/24; 127.0.0.1; };
+
+    recursion yes;
+    allow-recursion { 192.168.117.0/24; 127.0.0.1; };
+
+    forwarders {
+        192.168.117.5;
+    };
+
+    forward only;
+};
